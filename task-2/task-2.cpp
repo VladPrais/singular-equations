@@ -17,13 +17,21 @@ int main(void)
 {
 	int nodes = (int)1e6;
 
+	std::cout << "Задание 1" << std::endl;
+	std::cout << "Формула Симпсона " << simpson(f1, 0.0, 2.0, nodes) << std::endl;
+	std::cout << "Формула прямоугольника " << integr(f1, 0.0, 2.0, nodes) << std::endl;
+
+	std::cout << "Задание 2" << std::endl;
+	std::cout << "Формула Симпсона " << simpson(f2, 0.0, pi, nodes) << std::endl;
+	std::cout << "Формула прямоугольника " << integr(f2, 0.0, pi, nodes) << std::endl;
+
 	std::cout << "Задание 3" << std::endl;
 	std::cout << "Формула Симпсона " << simpson(f3, 0.0, 2.0 * pi, nodes) << std::endl;
 	std::cout << "Формула прямоугольника " << integr(f3, 0.0, 2.0 * pi, nodes) << std::endl;
 
 	std::cout << "Задание 4" << std::endl;
-	std::cout << "Формула Симпсона " << simpson(f4, 1.0 / cbrt(3), cbrt(3), nodes) << std::endl;
-	std::cout << "Формула прямоугольника " << integr(f4, 1.0 / cbrt(3), cbrt(3), nodes) << std::endl;
+	std::cout << "Формула Симпсона " << simpson(f4, 1.0 / sqrt(3), sqrt(3), nodes) << std::endl;
+	std::cout << "Формула прямоугольника " << integr(f4, 1.0 / sqrt(3), sqrt(3), nodes) << std::endl;
 
 	double b = 0.999999;
 	std::cout << "Задание 5" << std::endl;
@@ -33,6 +41,16 @@ int main(void)
 	return 0;
 }
 
+double f1(double x)
+{
+	return 2 * x - x * x;
+}
+
+double f2(double x)
+{
+	return sin(x);
+}
+
 double f3(double x)
 {
 	return x * x * cos(x);
@@ -40,7 +58,7 @@ double f3(double x)
 
 double f4(double x)
 {
-	return 1.0 / (1 + x * x);
+	return 1.0 / (1.0 + x * x);
 }
 
 double f5(double x)
